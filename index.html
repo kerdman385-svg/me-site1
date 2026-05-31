@@ -1,306 +1,300 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ToxicWorld | Магазин</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій Сучасний Сайт | Портфоліо</title>
+    <style>
+        /* ===== ОБНУЛЕННЯ СТИЛІВ ТА БАЗОВІ НАЛАШТУВАННЯ ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            line-height: 1.6;
+        }
 
-body{
-    background:#0f0f0f;
-    color:white;
-}
+        /* ===== ШАПКА ТА НАВІГАЦІЯ ===== */
+        header {
+            background-color: rgba(17, 24, 39, 0.95);
+            border-bottom: 1px solid #1f2937;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
 
-/* ===== NAV ===== */
-nav{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    padding:15px;
-    background:#111;
-    position:sticky;
-    top:0;
-    border-bottom:1px solid rgba(0,255,136,0.2);
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-.nav-btn{
-    background:none;
-    border:none;
-    color:#aaa;
-    font-size:15px;
-    cursor:pointer;
-    transition:0.3s;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #3b82f6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.nav-btn:hover{
-    color:#00ff88;
-}
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
 
-.nav-btn.active{
-    color:#00ff88;
-}
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
 
-/* ===== SECTIONS ===== */
-section{
-    display:none;
-    padding:60px 10%;
-}
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
 
-section.active{
-    display:block;
-}
+        /* ===== ГОЛОВНИЙ БАНЕР (HERO SECTION) ===== */
+        .hero {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: center;
+        }
 
-/* ===== HERO ===== */
-.hero{
-    text-align:center;
-    padding:80px 20px;
-}
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
 
-.hero h1{
-    font-size:70px;
-    color:#00ff88;
-    text-shadow:0 0 20px #00ff88;
-}
+        .hero h1 span {
+            color: #3b82f6;
+        }
 
-.hero p{
-    color:#ccc;
-    font-size:18px;
-}
+        .hero p {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
 
-/* ===== GRID ===== */
-.container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-    margin-top:40px;
-}
+        .cta-btn {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+        }
 
-/* ===== CARD ===== */
-.card{
-    background:linear-gradient(145deg,#1b1b1b,#151515);
-    padding:25px;
-    border-radius:16px;
-    text-align:center;
+        .cta-btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
 
-    transition:0.3s;
-    box-shadow:0 0 15px rgba(0,255,136,0.15);
-}
+        /* ===== СЕКЦІЯ РОБІТ (PORTFOLIO) ===== */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
 
-.card:hover{
-    transform:translateY(-12px) scale(1.03);
-    box-shadow:0 10px 30px rgba(0,255,136,0.25);
-}
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
 
-.title{
-    color:#00ff88;
-    font-size:20px;
-    margin-bottom:8px;
-}
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: #3b82f6;
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
 
-.price{
-    color:#fff;
-    margin-bottom:10px;
-    font-weight:bold;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-.desc{
-    color:#bbb;
-    font-size:14px;
-    line-height:1.5;
-}
+        .card {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
 
-/* ===== BUTTON ===== */
-.btn{
-    margin-top:12px;
-    padding:10px 15px;
-    background:#00ff88;
-    border:none;
-    border-radius:10px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;
-}
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
 
-.btn:hover{
-    background:#00cc6a;
-    transform:scale(1.08);
-}
-</style>
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
 
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== КОНТАКТИ (CONTACTS) ===== */
+        .contacts-box {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: block;
+            padding: 15px;
+            background-color: #1f2937;
+            border: 1px solid transparent;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: #3b82f6;
+            background-color: #1e3a8a;
+            transform: scale(1.02);
+        }
+
+        /* ===== ПІДВАЛ (FOOTER) ===== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6b7280;
+            border-top: 1px solid #1f2937;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== АДАПТИВНІСТЬ ДЛЯ МОБІЛОК ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-    <button class="nav-btn active" onclick="showTab('home')">🏠 Головна</button>
-    <button class="nav-btn" onclick="showTab('shop')">🛒 Магазин</button>
-    <button class="nav-btn" onclick="showTab('donate')">💎 Донати</button>
-    <button class="nav-btn" onclick="showTab('cases')">📦 Кейси</button>
-</nav>
+    <header>
+        <nav>
+            <div class="logo">Vsevolod</div>
+            <ul class="nav-links">
+                <li><a href="#home">Головна</a></li>
+                <li><a href="#projects">Проєкти</a></li>
+                <li><a href="#contacts">Контактувати</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- HOME -->
-<section id="home" class="active">
-    <div class="hero">
-        <h1>ToxicWorld</h1>
-        <p>Анархічний Minecraft сервер без обмежень</p>
-        <p style="color:#00ff88;margin-top:10px;">IP: mc.toxicworld.net</p>
-    </div>
-</section>
+    <section id="home" class="hero">
+        <h1>Привіт, я <span>Всеволод Кердман</span></h1>
+        <p>Починаючий Web-розробник. Створюю сучасні, швидкі та адаптивні сайти, які чудово виглядають на будь-яких пристроях.</p>
+        <a href="#contacts" class="cta-btn">Зв'язатися зі мною</a>
+    </section>
 
-<!-- SHOP -->
-<section id="shop">
-    <h2 style="text-align:center;color:#00ff88;">🛒 Магазин предметів</h2>
-
-    <div class="container">
-
-        <div class="card">
-            <div class="title">⚔️ Меч Venom</div>
-            <div class="price">80 грн</div>
-            <div class="desc">
-                • Отруйний ефект<br>
-                • +10% шкоди<br>
-                • Унікальний дизайн
+    <section id="projects" class="section">
+        <h2 class="section-title">Мої послуги та проєкти</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <span class="card-icon">💻</span>
+                <h3>Розробка сайтів</h3>
+                <p>Верстка та програмування лендінгів, сайтів-візиток, а також інтернет-магазинів "під ключ".</p>
+                <a href="https://kerdman385-svg.github.io/me-site3/" target="_blank" class="card-link">Дивитись приклад →</a>
             </div>
-            <button class="btn">Купити</button>
-        </div>
 
-        <div class="card">
-            <div class="title">🛡 Броня Toxic</div>
-            <div class="price">120 грн</div>
-            <div class="desc">
-                • Захист IV<br>
-                • Регенерація<br>
-                • Імунітет до отрути
+            <div class="card">
+                <span class="card-icon">🎨</span>
+                <h3>Адаптивний дизайн</h3>
+                <p>Оптимізація інтерфейсів під мобільні телефони, планшети та великі монітори комп'ютерів.</p>
+                <a href="#contacts" class="card-link">Замовити дизайн →</a>
             </div>
-            <button class="btn">Купити</button>
-        </div>
 
-        <div class="card">
-            <div class="title">💎 Артефакт Хаосу</div>
-            <div class="price">200 грн</div>
-            <div class="desc">
-                • Сила + ефекти<br>
-                • Швидкість<br>
-                • Рідкісний предмет
+            <div class="card">
+                <span class="card-icon">⚡</span>
+                <h3>Швидкість та SEO</h3>
+                <p>Оптимізація коду для миттєвого завантаження сторінок та базова підготовка сайту до пошукових систем.</p>
+                <a href="#contacts" class="card-link">Дізнатись більше →</a>
             </div>
-            <button class="btn">Купити</button>
+
         </div>
+    </section>
 
-    </div>
-</section>
-
-<!-- DONATES -->
-<section id="donate">
-    <h2 style="text-align:center;color:#00ff88;">💎 Донати</h2>
-
-    <div class="container">
-
-        <div class="card">
-            <div class="title">VIP</div>
-            <div class="price">50 грн</div>
-            <div class="desc">
-                • Кольоровий нік<br>
-                • /fly у лобі<br>
-                • VIP кейс
+    <section id="contacts" class="section">
+        <h2 class="section-title">Замовити сайт</h2>
+        <div class="contacts-box">
+            <p>Маєш ідею для проєкту чи потрібен крутий сайт для сервера? Напиши або зателефонуй мені прямо зараз!</p>
+            <div class="contact-links">
+                <a href="https://t.me/Angelo4ek266" target="_blank" class="contact-item">✈️ Написати в Telegram: @Angelo4ek266</a>
+                <a href="#" onclick="alert('Мій Discord: toxictop (скопіюйте та додайте в друзі)'); return false;" class="contact-item">💬 Мій Discord: toxictop</a>
+                <a href="tel:+380751034661" class="contact-item">📞 Зателефонувати: 075 103 4661</a>
             </div>
-            <button class="btn">Купити</button>
         </div>
+    </section>
 
-        <div class="card">
-            <div class="title">HUNTER</div>
-            <div class="price">120 грн</div>
-            <div class="desc">
-                • VIP привілеї<br>
-                • /kit hunter<br>
-                • Бонусна броня
-            </div>
-            <button class="btn">Купити</button>
-        </div>
-
-        <div class="card">
-            <div class="title">VENOM</div>
-            <div class="price">250 грн</div>
-            <div class="desc">
-                • Отруйні ефекти<br>
-                • Кастом меч<br>
-                • Покращені кити
-            </div>
-            <button class="btn">Купити</button>
-        </div>
-
-        <div class="card">
-            <div class="title">CORRUPTED</div>
-            <div class="price">400 грн</div>
-            <div class="desc">
-                • Сильні ефекти<br>
-                • /fly всюди<br>
-                • Унікальні предмети
-            </div>
-            <button class="btn">Купити</button>
-        </div>
-
-        <div class="card">
-            <div class="title">ADMIN+</div>
-            <div class="price">600 грн</div>
-            <div class="desc">
-                • Максимальні привілеї<br>
-                • Команди адміністратора<br>
-                • Ексклюзивні можливості
-            </div>
-            <button class="btn">Купити</button>
-        </div>
-
-    </div>
-</section>
-
-<!-- CASES -->
-<section id="cases">
-    <h2 style="text-align:center;color:#00ff88;">📦 Кейси</h2>
-
-    <div class="container">
-
-        <div class="card">
-            <div class="title">Звичайний кейс</div>
-            <div class="price">30 грн</div>
-            <div class="desc">Базові ресурси та бонуси</div>
-            <button class="btn">Відкрити</button>
-        </div>
-
-        <div class="card">
-            <div class="title">Рідкісний кейс</div>
-            <div class="price">70 грн</div>
-            <div class="desc">Кастом предмети та броня</div>
-            <button class="btn">Відкрити</button>
-        </div>
-
-        <div class="card">
-            <div class="title">Легендарний кейс</div>
-            <div class="price">150 грн</div>
-            <div class="desc">Найкращі предмети сервера</div>
-            <button class="btn">Відкрити</button>
-        </div>
-
-    </div>
-</section>
-
-<script>
-function showTab(tab){
-    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-    document.getElementById(tab).classList.add("active");
-
-    document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
-    event.target.classList.add("active");
-}
-</script>
+    <footer>
+        <p>&copy; 2026 Всеволод Кердман. Усі права захищені.</p>
+    </footer>
 
 </body>
 </html>
