@@ -1,90 +1,306 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
+
 <head>
-    <meta charset="utf-8">
-    <title>Сайт-візитка | Всеволод Кердман</title>
-    
-    <style>
-        /* Стилі для всього фону сторінки */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Красивий сучасний шрифт */
-            background-color: #f0f2f5; /* М'який сірий фон */
-            display: flex;
-            justify-content: center; /* Центруємо картку по горизонталі */
-            align-items: center;     /* Центруємо картку по вертикалі */
-            height: 100vh;           /* Розтягуємо фон на всю висоту екрана */
-            margin: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ToxicWorld | Магазин</title>
 
-        /* Стилі для самої картки-візитки */
-        .card {
-            background-color: #ffffff; /* Білий фон картки */
-            padding: 30px;             /* Відступи всередині картки */
-            border-radius: 15px;       /* Закруглені кути */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Легка елегантна тінь */
-            text-align: center;        /* Текст по центру */
-            max-width: 350px;          /* Максимальна ширина картки */
-            width: 100%;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-        /* Стилі для головного заголовка (твого імені) */
-        h1 {
-            color: #2c3e50;            /* Темно-синій колір тексту */
-            margin-bottom: 5px;        /* Відступ знизу */
-            font-size: 28px;
-        }
+body{
+    background:#0f0f0f;
+    color:white;
+}
 
-        /* Стилі для підзаголовка (професія або статус) */
-        .subtitle {
-            color: #3498db;            /* Красивий блакитний колір */
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
+/* ===== NAV ===== */
+nav{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    padding:15px;
+    background:#111;
+    position:sticky;
+    top:0;
+    border-bottom:1px solid rgba(0,255,136,0.2);
+}
 
-        /* Стилі для звичайного тексту */
-        p {
-            color: #7f8c8d;            /* Спокійний сірий колір тексту */
-            line-height: 1.6;          /* Відстань між рядками, щоб легко читалося */
-            font-size: 16px;
-        }
+.nav-btn{
+    background:none;
+    border:none;
+    color:#aaa;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-        /* Стилі для кнопки зв'язку */
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #3498db; /* Блакитний фон кнопки */
-            color: white;              /* Білий текст */
-            text-decoration: none;     /* Прибираємо підкреслення посилання */
-            border-radius: 5px;        /* Трохи закруглені кути */
-            font-weight: bold;
-            transition: 0.3s;          /* Плавна анімація при наведенні */
-        }
+.nav-btn:hover{
+    color:#00ff88;
+}
 
-        /* Ефект при наведенні курсору на кнопку */
-        .btn:hover {
-            background-color: #2980b9; /* Насиченіший колір при наведенні */
-        }
-    </style>
+.nav-btn.active{
+    color:#00ff88;
+}
+
+/* ===== SECTIONS ===== */
+section{
+    display:none;
+    padding:60px 10%;
+}
+
+section.active{
+    display:block;
+}
+
+/* ===== HERO ===== */
+.hero{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:70px;
+    color:#00ff88;
+    text-shadow:0 0 20px #00ff88;
+}
+
+.hero p{
+    color:#ccc;
+    font-size:18px;
+}
+
+/* ===== GRID ===== */
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+/* ===== CARD ===== */
+.card{
+    background:linear-gradient(145deg,#1b1b1b,#151515);
+    padding:25px;
+    border-radius:16px;
+    text-align:center;
+
+    transition:0.3s;
+    box-shadow:0 0 15px rgba(0,255,136,0.15);
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 10px 30px rgba(0,255,136,0.25);
+}
+
+.title{
+    color:#00ff88;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.price{
+    color:#fff;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+.desc{
+    color:#bbb;
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+    margin-top:12px;
+    padding:10px 15px;
+    background:#00ff88;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#00cc6a;
+    transform:scale(1.08);
+}
+</style>
+
 </head>
+
 <body>
 
-    <!-- Наша картка-візитка -->
-    <div class="card">
-        <!-- Твоє ім'я тепер головний заголовок сторінки -->
-        <h1>Всеволод Кердман</h1>
-        
-        <!-- Підзаголовок -->
-        <p class="subtitle">Веб Розробник</p>
-        
-        <!-- Текст про себе -->
-        <p>Вітаю! Це мій перший персональний сайт-візитка. Я навчаюся створювати сучасні та красиві веб-сторінки за допомогою HTML та CSS.</p>
-        
-        <!-- Кнопка (поки що веде просто наверх сторінки "#") -->
-        <a href="#" class="btn">Написати мені</a>
+<!-- NAV -->
+<nav>
+    <button class="nav-btn active" onclick="showTab('home')">🏠 Головна</button>
+    <button class="nav-btn" onclick="showTab('shop')">🛒 Магазин</button>
+    <button class="nav-btn" onclick="showTab('donate')">💎 Донати</button>
+    <button class="nav-btn" onclick="showTab('cases')">📦 Кейси</button>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+    <div class="hero">
+        <h1>ToxicWorld</h1>
+        <p>Анархічний Minecraft сервер без обмежень</p>
+        <p style="color:#00ff88;margin-top:10px;">IP: mc.toxicworld.net</p>
     </div>
+</section>
+
+<!-- SHOP -->
+<section id="shop">
+    <h2 style="text-align:center;color:#00ff88;">🛒 Магазин предметів</h2>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="title">⚔️ Меч Venom</div>
+            <div class="price">80 грн</div>
+            <div class="desc">
+                • Отруйний ефект<br>
+                • +10% шкоди<br>
+                • Унікальний дизайн
+            </div>
+            <button class="btn">Купити</button>
+        </div>
+
+        <div class="card">
+            <div class="title">🛡 Броня Toxic</div>
+            <div class="price">120 грн</div>
+            <div class="desc">
+                • Захист IV<br>
+                • Регенерація<br>
+                • Імунітет до отрути
+            </div>
+            <button class="btn">Купити</button>
+        </div>
+
+        <div class="card">
+            <div class="title">💎 Артефакт Хаосу</div>
+            <div class="price">200 грн</div>
+            <div class="desc">
+                • Сила + ефекти<br>
+                • Швидкість<br>
+                • Рідкісний предмет
+            </div>
+            <button class="btn">Купити</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- DONATES -->
+<section id="donate">
+    <h2 style="text-align:center;color:#00ff88;">💎 Донати</h2>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="title">VIP</div>
+            <div class="price">50 грн</div>
+            <div class="desc">
+                • Кольоровий нік<br>
+                • /fly у лобі<br>
+                • VIP кейс
+            </div>
+            <button class="btn">Купити</button>
+        </div>
+
+        <div class="card">
+            <div class="title">HUNTER</div>
+            <div class="price">120 грн</div>
+            <div class="desc">
+                • VIP привілеї<br>
+                • /kit hunter<br>
+                • Бонусна броня
+            </div>
+            <button class="btn">Купити</button>
+        </div>
+
+        <div class="card">
+            <div class="title">VENOM</div>
+            <div class="price">250 грн</div>
+            <div class="desc">
+                • Отруйні ефекти<br>
+                • Кастом меч<br>
+                • Покращені кити
+            </div>
+            <button class="btn">Купити</button>
+        </div>
+
+        <div class="card">
+            <div class="title">CORRUPTED</div>
+            <div class="price">400 грн</div>
+            <div class="desc">
+                • Сильні ефекти<br>
+                • /fly всюди<br>
+                • Унікальні предмети
+            </div>
+            <button class="btn">Купити</button>
+        </div>
+
+        <div class="card">
+            <div class="title">ADMIN+</div>
+            <div class="price">600 грн</div>
+            <div class="desc">
+                • Максимальні привілеї<br>
+                • Команди адміністратора<br>
+                • Ексклюзивні можливості
+            </div>
+            <button class="btn">Купити</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+    <h2 style="text-align:center;color:#00ff88;">📦 Кейси</h2>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="title">Звичайний кейс</div>
+            <div class="price">30 грн</div>
+            <div class="desc">Базові ресурси та бонуси</div>
+            <button class="btn">Відкрити</button>
+        </div>
+
+        <div class="card">
+            <div class="title">Рідкісний кейс</div>
+            <div class="price">70 грн</div>
+            <div class="desc">Кастом предмети та броня</div>
+            <button class="btn">Відкрити</button>
+        </div>
+
+        <div class="card">
+            <div class="title">Легендарний кейс</div>
+            <div class="price">150 грн</div>
+            <div class="desc">Найкращі предмети сервера</div>
+            <button class="btn">Відкрити</button>
+        </div>
+
+    </div>
+</section>
+
+<script>
+function showTab(tab){
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById(tab).classList.add("active");
+
+    document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
+    event.target.classList.add("active");
+}
+</script>
 
 </body>
 </html>
